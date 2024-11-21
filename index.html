@@ -1,108 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veliocaptor!</title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        body {
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            position: relative;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 1rem;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .main-text {
-            font-size: 140px;
+            font-size: clamp(60px, 20vw, 140px);
             color: white;
             text-shadow: 
-                4px 4px 0px #FF8E53,
-                8px 8px 0px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+                3px 3px 0px #FF8E53,
+                6px 6px 0px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
             font-weight: 900;
+            line-height: 1;
+        }
+
+        .dino-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
         }
 
         .quote-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            width: 100%;
-            max-width: 900px;
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
 
         .quote {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 20px;
+            padding: 1rem;
+            border-radius: 15px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
         .quote:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
         }
 
-        .dino-emoji {
-            font-size: 60px;
-            margin: 1rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .main-text {
-                font-size: 80px;
-            }
-
+        @media screen and (min-width: 600px) {
             .quote-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .container {
+                padding: 3rem;
             }
         }
 
-        .decor-circ {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: -1;
+        @media screen and (max-height: 700px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .main-text {
+                margin-bottom: 0.5rem;
+            }
+
+            .dino-emoji {
+                margin-bottom: 1rem;
+            }
         }
 
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            right: -150px;
+        @media (hover: hover) {
+            .quote:hover {
+                transform: scale(1.05);
+            }
         }
 
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            bottom: -100px;
-            left: -100px;
+        @media (hover: none) {
+            .quote:active {
+                transform: scale(0.95);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="decor-circ circle-1"></div>
-    <div class="decor-circ circle-2"></div>
-    
     <div class="container">
         <div class="main-text">RAWR!</div>
         <div class="dino-emoji">🦖</div>
         <div class="quote-container">
-            <div class="quote">maloi and ganda mo po</div>
+            <div class="quote">Frenz gwapo</div>
         </div>
     </div>
 </body>
